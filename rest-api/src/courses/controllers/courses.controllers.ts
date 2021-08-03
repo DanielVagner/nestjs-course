@@ -1,11 +1,9 @@
-import { Controller, Get } from "@nestjs/common";
-import { findAllCourses } from "../../../db-data";
-import { Course } from '../../../../shared/course'
+import { Body, Controller, Get, Param, Put } from "@nestjs/common";
+import { Course } from '../../../../shared/course';
 import { CoursesRepository } from "../repositories/courses.repository";
 
-@Controller({
 
-})
+@Controller('courses')
 
 export class CoursesController {
 
@@ -13,9 +11,18 @@ export class CoursesController {
 
     }
 
-    @Get('/api/courses')
+    @Get()
     async findAllCourses(): Promise<Course[]> {
         return this.courseDb.findAll();
+    }
+
+    @Put(':courseId')
+    async updateCourse(
+        @Param("courseId") courseId: string,
+        @Body() changes: Partial<Course>): Promise<Course> {
+        console.log('updating course');
+
+        return this.courseDb.updateCourse(courseId, changes);
     }
 
 

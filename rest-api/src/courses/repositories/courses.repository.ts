@@ -15,4 +15,12 @@ export class CoursesRepository {
         return this.courseModel.find();
     }
 
+    async updateCourse(courseId: string, changes: Partial<Course>): Promise<Course> {
+        return this.courseModel.findOneAndUpdate(
+            { _id: courseId },
+            changes,
+            { new: true }
+        );
+    }
+
 }
