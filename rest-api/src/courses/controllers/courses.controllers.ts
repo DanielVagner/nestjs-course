@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Put } from "@nestjs/common";
+import { Body, Controller, Delete, Get, Param, Post, Put } from "@nestjs/common";
 import { Course } from '../../../../shared/course';
 import { CoursesRepository } from "../repositories/courses.repository";
 
@@ -9,6 +9,13 @@ export class CoursesController {
 
     constructor(private courseDb: CoursesRepository) {
 
+    }
+
+    @Post()
+    async createCourse(@Body() course: Partial<Course>): Promise<Course> {
+        console.log("creating new course");
+
+        return this.courseDb.addCourse(course)
     }
 
     @Get()

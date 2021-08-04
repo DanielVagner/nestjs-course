@@ -27,4 +27,13 @@ export class CoursesRepository {
         return this.courseModel.deleteOne({ _id: courseId });
     }
 
+    async addCourse(course: Partial<Course>): Promise<Course> {
+
+        const newCourse = new this.courseModel(course);
+
+        await newCourse.save();
+
+        return newCourse.toObject({ versionKey: false });
+    }
+
 }
