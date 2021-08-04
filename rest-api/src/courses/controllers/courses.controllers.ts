@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Post, Put } from "@nestjs/common";
+import { Body, Controller, Delete, Get, HttpException, Param, Post, Put } from "@nestjs/common";
 import { Course } from '../../../../shared/course';
 import { CoursesRepository } from "../repositories/courses.repository";
 
@@ -29,12 +29,20 @@ export class CoursesController {
         @Body() changes: Partial<Course>): Promise<Course> {
         console.log('updating course');
 
+        if (changes._id) {
+            throw new HttpException("Can't update course id", 400);
+        }
+
         return this.courseDb.updateCourse(courseId, changes);
     }
 
     @Delete(':courseId')
     async deleteCourse(@Param('courseId') courseId: string) {
         console.log("deleting course" + courseId);
+
+        if (!courseId) {
+            throw new HttpException("Id was empty", 400);
+        }
 
         return this.courseDb.deleteCourse(courseId);
     }
