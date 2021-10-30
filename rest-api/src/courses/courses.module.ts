@@ -1,5 +1,6 @@
 import { Module } from "@nestjs/common";
 import { MongooseModule } from "@nestjs/mongoose";
+import { HttpExceptionFilter } from "src/filter/http.filter";
 import { CoursesController } from "./controllers/courses.controllers";
 import { CoursesRepository } from "./repositories/courses.repository";
 import { CoursesSchema } from "./schemas/courses.schema";
@@ -16,7 +17,7 @@ import { CoursesSchema } from "./schemas/courses.schema";
         CoursesController
     ],
     providers: [
-        CoursesRepository
+        CoursesRepository,
     ]
 })
 export class CoursesModule { }
