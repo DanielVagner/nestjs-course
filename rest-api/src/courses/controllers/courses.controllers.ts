@@ -1,21 +1,23 @@
 import { Body, Controller, Delete, Get, HttpException, Param, Post, Put } from "@nestjs/common";
-import { Course } from '../../../../shared/course';
+import { ApiBody, ApiTags } from "@nestjs/swagger";
+import { IntegerPipe } from "../../pipes/integer.pipe";
+import { Course } from '../../models/course';
 import { CoursesRepository } from "../repositories/courses.repository";
 
 
-
+@ApiTags('courses')
 @Controller('courses')
 
 export class CoursesController {
-
     constructor(private courseDb: CoursesRepository) {
-
     }
 
     @Post()
-    async createCourse(@Body() course: Partial<Course>): Promise<Course> {
+    @ApiBody({ type: Course, description: "Create new course"})
+  
+    async createCourse(@Body() course: Course): Promise<Course> {
         console.log("creating new course");
-
+        
         return this.courseDb.addCourse(course)
     }
 
@@ -25,9 +27,10 @@ export class CoursesController {
     }
 
     @Put(':courseId')
+    @ApiBody({ type: Course, description: "Update course"})
     async updateCourse(
         @Param("courseId") courseId: string,
-        @Body() changes: Partial<Course>): Promise<Course> {
+        @Body() changes: Course): Promise<Course> {
         console.log('updating course');
 
         if (changes._id) {

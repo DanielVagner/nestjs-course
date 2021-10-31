@@ -1,15 +1,19 @@
+import { IsBoolean, IsInt, IsMongoId, IsString } from "class-validator";
+import { ApiProperty } from '../rest-api/node_modules/@nestjs/swagger';
 
-export interface Course {
-  _id: string;
-  seqNo:number;
-  url:string;
-  iconUrl: string;
-  courseListIcon: string;
-  description: string;
-  longDescription?: string;
-  category: string;
-  lessonsCount: number;
-  promo: boolean;
+
+export class Course {
+  @ApiProperty()
+  @IsMongoId() _id: string;
+  @IsInt({message: "seqNo must be numeric"}) seqNo:number;
+  @IsString({always: false}) url:string;
+  @IsString() iconUrl: string;
+  @IsString() courseListIcon: string;
+  @IsString() description: string;
+  @IsString() longDescription?: string;
+  @IsString() category: string;
+  @IsInt() lessonsCount: number;
+  @IsBoolean() promo: boolean;
 }
 
 
