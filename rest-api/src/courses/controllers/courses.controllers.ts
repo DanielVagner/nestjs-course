@@ -3,6 +3,7 @@ import { ApiBody, ApiTags } from "@nestjs/swagger";
 import { Course } from '../../models/course';
 import { CoursesRepository } from "../repositories/courses.repository";
 import { AuthenticationGuard } from "../../guards/authentication.guard";
+import { AdminGuard } from "../../guards/admin.guard";
 
 
 @ApiTags('courses')
@@ -13,6 +14,7 @@ export class CoursesController {
     }
 
     @Post()
+    @UseGuards(AdminGuard)
     @ApiBody({ type: Course, description: "Create new course"})
   
     async createCourse(@Body() course: Course): Promise<Course> {
@@ -41,6 +43,7 @@ export class CoursesController {
     }
 
     @Delete(':courseId')
+    @UseGuards(AdminGuard)
     async deleteCourse(@Param('courseId') courseId: string) {
         console.log("deleting course" + courseId);
 
