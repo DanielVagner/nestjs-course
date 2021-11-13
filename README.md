@@ -1,7 +1,7 @@
 
 ## NestJs In Practice Course
 
-# THIS REPO/CODE IS CREADET ACCORDING TO THE TUTORIAL [NestJs In Practice Course](https://angular-university.io/course/nestjs-course).
+# THIS REPO/CODE IS CREATED ACCORDING TO THE TUTORIAL [NestJs In Practice Course](https://angular-university.io/course/nestjs-course).
 
 
 
@@ -65,21 +65,3 @@ To run the frontend part of our code, we will use the Angular CLI:
     npm start 
 
 The application is visible at port 4200: [http://localhost:4200](http://localhost:4200)
-
-
-
-# Important 
-
-This repository has multiple branches, have a look at the beginning of each section to see the name of the branch.
-
-At certain points along the course, you will be asked to checkout other remote branches other than master. You can view all branches that you have available remotely using the following command:
-
-    git branch -a
-
-  The remote branches have their starting in origin, such as for example 1-start.
-
-We can checkout the remote branch and start tracking it with a local branch that has the same name, by using the following command:
-
-      git checkout -b 1-start 
-
-It's also possible to download a ZIP file for a given branch,  using the branch dropdown on this page on the top left, and then selecting the Clone or Download / Download as ZIP button.
