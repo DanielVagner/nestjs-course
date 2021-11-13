@@ -1,7 +1,7 @@
 
 ## NestJs In Practice Course
 
-# THIS REPO/CODE IS CREADET ACCORDING TO THE TUTORIAL [NestJs In Practice Course](https://angular-university.io/course/nestjs-course).
+# THIS REPO/CODE IS CREATED ACCORDING TO THE TUTORIAL [NestJs In Practice Course](https://angular-university.io/course/nestjs-course).
 
 
 
