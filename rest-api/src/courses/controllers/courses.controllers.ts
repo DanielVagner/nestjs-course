@@ -1,13 +1,13 @@
-import { Body, Controller, Delete, Get, HttpException, Param, Post, Put } from "@nestjs/common";
+import { Body, Controller, Delete, Get, HttpException, Param, Post, Put, UseGuards } from "@nestjs/common";
 import { ApiBody, ApiTags } from "@nestjs/swagger";
-import { IntegerPipe } from "../../pipes/integer.pipe";
 import { Course } from '../../models/course';
 import { CoursesRepository } from "../repositories/courses.repository";
+import { AuthenticationGuard } from "../../guards/authentication.guard";
 
 
 @ApiTags('courses')
 @Controller('courses')
-
+@UseGuards(AuthenticationGuard)
 export class CoursesController {
     constructor(private courseDb: CoursesRepository) {
     }
