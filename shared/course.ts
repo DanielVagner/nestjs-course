@@ -1,9 +1,8 @@
 import { IsBoolean, IsInt, IsMongoId, IsString } from "class-validator";
-import { ApiProperty } from '../rest-api/node_modules/@nestjs/swagger';
+
 
 
 export class Course {
-  @ApiProperty()
   @IsMongoId() _id: string;
   @IsInt({message: "seqNo must be numeric"}) seqNo:number;
   @IsString({always: false}) url:string;
