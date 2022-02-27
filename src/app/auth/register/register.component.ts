@@ -10,35 +10,32 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-
   form: FormGroup;
 
   constructor(
-      private fb:FormBuilder,
-      private auth: AuthService,
-      private router:Router,
-      private snackBarService: SnackBarService) {
-
-      this.form = fb.group({
-          email: ['test@angular-university.io', [Validators.required]],
-          password: ['password', [Validators.required]]
-      });
-
+    private fb: FormBuilder,
+    private auth: AuthService,
+    private router: Router,
+    private snackBarService: SnackBarService
+  ) {
+    this.form = fb.group({
+      email: ['test@angular-university.io', [Validators.required]],
+      password: ['password', [Validators.required]]
+    });
   }
 
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 
   login() {
     const val = this.form.value;
 
-    this.auth.register(val.email, val.password, 'student').subscribe(() =>{
-      this.router.navigateByUrl('/login');
+    this.auth.register(val.email, val.password, 'STUDENT').subscribe(
+      () => {
+        this.router.navigateByUrl('/login');
       },
-      err => {
+      (err) => {
         this.snackBarService.displaySnackBar(err.error.errorMessage, 'ok');
-      });
+      }
+    );
   }
-
 }

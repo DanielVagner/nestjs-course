@@ -52,15 +52,18 @@ export class AuthController {
 
     @Post('/register')
     async register(@Body() user: User) {
+        password(user.passwordHash).hash((error, hash)=> {
+            user.passwordHash = hash;
+        });
 
         const { email } = user;
         const userExist = await this.userModel.findOne({ email });
-        console.log(userExist);
 
         if (userExist) {
-            console.log("User already exist on the database");
             throw new ConflictException('User already exist');
         } 
+
+        console.log(user);
 
            return this.authDb.addUser(user);
         }

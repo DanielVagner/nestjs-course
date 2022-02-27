@@ -8,42 +8,35 @@ import { AuthInterceptor } from './auth/auth.interceptor';
 import { AuthModule } from './auth/auth.module';
 import { MaterialModule } from './shared/material/material.module';
 
-
-
-
-
 const routes: Routes = [
-    {
-        path: 'courses',
-        loadChildren: () => import('./courses/courses.module').then(m => m.CoursesModule)
-    },
-    {
-        path: '**',
-        redirectTo: '/login'
-    }
+  {
+    path: 'courses',
+    loadChildren: () =>
+      import('./courses/courses.module').then((m) => m.CoursesModule)
+  },
+  {
+    path: '**',
+    redirectTo: '/login'
+  }
 ];
 
-
 @NgModule({
-    declarations: [
-        AppComponent
-    ],
-    imports: [
-        BrowserModule,
-        BrowserAnimationsModule,
-        RouterModule.forRoot(routes),
-        HttpClientModule,
-        AuthModule.forRoot(),
-        MaterialModule
-    ],
-    providers: [
-        {
-            provide: HTTP_INTERCEPTORS,
-            useClass: AuthInterceptor,
-            multi: true,
-        },
-    ],
-    bootstrap: [AppComponent]
+  declarations: [AppComponent],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    RouterModule.forRoot(routes),
+    HttpClientModule,
+    AuthModule.forRoot(),
+    MaterialModule
+  ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
+  bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule {}

@@ -25,7 +25,7 @@ export class User {
   email: string;
 
   @IsNotEmpty()
-  password: string;
+  passwordHash: string;
 }
 
 

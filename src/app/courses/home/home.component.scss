@@ -1,40 +1,33 @@
-
-
 .title {
-    text-align: center;
-    margin-right: 15px;
-
+  text-align: center;
+  margin-right: 15px;
 }
 
 .courses-panel {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding-right: 2%;
-    padding-left: 2%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding-right: 2%;
+  padding-left: 2%;
 }
 
-
 .counters {
-    display: flex;
+  display: flex;
 }
 
 .filler {
-    flex: 1 1 auto;
+  flex: 1 1 auto;
 }
 
 h2 {
-  font-family: "Roboto";
+  font-family: 'Roboto';
 }
 
 .header {
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 
-mat-spinner{
+mat-spinner {
   margin: 0 auto;
 }
-
-

@@ -1,33 +1,41 @@
-<mat-sidenav-container fullscreen >
+<mat-sidenav-container fullscreen>
+  <mat-sidenav #start>
+    <mat-nav-list (click)="start.close()">
+      <a mat-list-item routerLink="/courses">
+        <mat-icon>library_books</mat-icon>
+        <span>Article</span>
+      </a>
 
-    <mat-sidenav #start>
-        <mat-nav-list (click)="start.close()">
+      <a mat-list-item (click)="logout()">
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Logout</span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
 
-            <a mat-list-item routerLink="/courses">
-                <mat-icon>library_books</mat-icon>
-                <span>Article</span>
-            </a>
+  <mat-toolbar color="primary">
+    <button mat-button color="accent" (click)="start.open('mouse')">
+      <mat-icon>menu</mat-icon>
+    </button>
 
-            <a mat-list-item  (click)="logout()">
-                <mat-icon>exit_to_app</mat-icon>
-                <span>Logout</span>
-            </a>
+    <a href="https://angular.io/"
+      ><img
+        src="../assets/img/shield-large.svg"
+        width="37"
+        height="40"
+        title="Home"
+        alt="Home"
+    /></a>
+    <a style="font-size: 18px; margin: 2%">+</a>
+    <a href="https://nestjs.com/"
+      ><img
+        src="../assets/img/logo-small.ede75a6b.svg"
+        width="37"
+        height="40"
+        title="Home"
+        alt="Home"
+    /></a>
+  </mat-toolbar>
 
-        </mat-nav-list>
-
-    </mat-sidenav>
-
-    <mat-toolbar color="primary">
-        <button mat-button color="accent"  (click)="start.open('mouse')">
-            <mat-icon>menu</mat-icon>
-        </button>
-   
-        <a href="https://angular.io/"><img src="../assets/img/shield-large.svg" width="37" height="40" title="Home" alt="Home"></a>
-        <a style="font-size: 18px; margin: 2%">+</a>
-        <a href="https://nestjs.com/"><img src="../assets/img/logo-small.ede75a6b.svg" width="37" height="40" title="Home" alt="Home"></a>
- 
-    </mat-toolbar>
-
-    <router-outlet></router-outlet>
-
+  <router-outlet></router-outlet>
 </mat-sidenav-container>
