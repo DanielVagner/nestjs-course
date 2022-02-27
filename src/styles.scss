@@ -1,90 +1,92 @@
-@use '~@angular/material' as mat;
-/* You can add global styles to this file, and also import other style files */
+@use "~@angular/material" as mat;
 
-.mat-tab-labels{
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300&display=swap");
+
+.mat-tab-labels {
   justify-content: center;
 }
 
+body {
+  font-family: "Roboto", sans-serif;
+}
 
 // Include non-theme styles for core.
 @include mat.core();
 
-$mat-custom-primary-theme:   (
-  50 : #e2e9f4,
-    100 : #b6c8e3,
-    200 : #86a3d0,
-    300 : #567ebd,
-    400 : #3163af,
-    500 : #0d47a1,
-    600 : #0b4099,
-    700 : #09378f,
-    800 : #072f85,
-    900 : #032074,
-    A100 : #a2b4ff,
-    A200 : #6f8aff,
-    A400 : #3c61ff,
-    A700 : #234cff,
-    contrast: (
-        50 : #000000,
-        100 : #000000,
-        200 : #000000,
-        300 : #ffffff,
-        400 : #ffffff,
-        500 : #ffffff,
-        600 : #ffffff,
-        700 : #ffffff,
-        800 : #ffffff,
-        900 : #ffffff,
-        A100 : #000000,
-        A200 : #000000,
-        A400 : #ffffff,
-        A700 : #ffffff,
-    )
+$mat-custom-primary-theme: (
+  50: #e2e9f4,
+  100: #b6c8e3,
+  200: #86a3d0,
+  300: #567ebd,
+  400: #3163af,
+  500: #0d47a1,
+  600: #0b4099,
+  700: #09378f,
+  800: #072f85,
+  900: #032074,
+  A100: #a2b4ff,
+  A200: #6f8aff,
+  A400: #3c61ff,
+  A700: #234cff,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #ffffff,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #ffffff,
+    A700: #ffffff,
+  ),
 );
 
 $mat-custom-seccondary-theme: (
-  50 : #f7f5e3,
-  100 : #ebe5b8,
-  200 : #ddd489,
-  300 : #cfc25a,
-  400 : #c5b536,
-  500 : #bba813,
-  600 : #b5a011,
-  700 : #ac970e,
-  800 : #a48d0b,
-  900 : #967d06,
-  A100 : #fff3c2,
-  A200 : #ffe98f,
-  A400 : #ffdf5c,
-  A700 : #ffda42,
+  50: #f7f5e3,
+  100: #ebe5b8,
+  200: #ddd489,
+  300: #cfc25a,
+  400: #c5b536,
+  500: #bba813,
+  600: #b5a011,
+  700: #ac970e,
+  800: #a48d0b,
+  900: #967d06,
+  A100: #fff3c2,
+  A200: #ffe98f,
+  A400: #ffdf5c,
+  A700: #ffda42,
   contrast: (
-      50 : #000000,
-      100 : #000000,
-      200 : #000000,
-      300 : #000000,
-      400 : #000000,
-      500 : #000000,
-      600 : #000000,
-      700 : #000000,
-      800 : #000000,
-      900 : #ffffff,
-      A100 : #000000,
-      A200 : #000000,
-      A400 : #000000,
-      A700 : #000000,
-  )
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #000000,
+    600: #000000,
+    700: #000000,
+    800: #000000,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
 );
-
 
 // Define a theme.
 $primary: mat.define-palette($mat-custom-primary-theme);
-$accent:  mat.define-palette($mat-custom-seccondary-theme);
+$accent: mat.define-palette($mat-custom-seccondary-theme);
 
 $theme: mat.define-dark-theme($primary, $accent);
 
 // Include all theme styles for the components.
 @include mat.all-component-themes($theme);
-
 
 .spinner-container {
   position: fixed;
@@ -97,4 +99,62 @@ $theme: mat.define-dark-theme($primary, $accent);
   justify-content: center;
   max-width: 350px;
   margin: 70px auto 0 auto;
+}
+
+@import "~highlight.js/styles/github-dark.css";
+
+pre {
+  display: flex;
+  margin: 4%;
+  word-wrap: break-word;
+
+  code {
+    flex: 1;
+    line-height: 1.5em;
+    font-size: 14px;
+    min-height: 100%;
+    padding: 1em 1.2em;
+
+    &.hljs-line-numbers {
+      padding: 0 !important;
+    }
+  }
+}
+
+/** Line numbers styles */
+.hljs {
+  margin: 0 1em;
+  padding: 10px;
+  border: 1px solid gray;
+  border-radius: 4px;
+  transition: border ease 1s;
+}
+
+.hljs-ln {
+  padding: 8px 0;
+
+  tr {
+    &:first-child td {
+      padding-top: 8px !important;
+    }
+
+    &:last-child td {
+      padding-bottom: 8px !important;
+    }
+  }
+}
+
+/* for block of numbers */
+td.hljs-ln-numbers {
+  user-select: none;
+  text-align: center;
+  border-right: 1px solid gray;
+  vertical-align: top;
+  padding-right: 8px !important;
+  padding-left: 8px !important;
+}
+
+/* for block of code */
+td.hljs-ln-code {
+  padding-left: 8px !important;
 }

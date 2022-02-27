@@ -8,7 +8,7 @@ import { CoursesHttpService } from '../services/courses-http.service';
 @Component({
   selector: 'course-dialog',
   templateUrl: './edit-course-dialog.component.html',
-  styleUrls: ['./edit-course-dialog.component.css']
+  styleUrls: ['./edit-course-dialog.component.scss']
 })
 export class EditCourseDialogComponent {
   form: FormGroup;

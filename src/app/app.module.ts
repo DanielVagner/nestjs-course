@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
+import { HighlightModule, HighlightOptions, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
 import { AppComponent } from './app.component';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { AuthModule } from './auth/auth.module';
@@ -28,13 +29,24 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     HttpClientModule,
     AuthModule.forRoot(),
-    MaterialModule
+    MaterialModule,
+    HighlightModule
+  ],
+  exports:[
+    HighlightModule
   ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
+    },
+    {
+        provide: HIGHLIGHT_OPTIONS,
+        useValue: {
+          fullLibraryLoader: () => import('highlight.js'),
+          lineNumbersLoader: () => import('highlightjs-line-numbers.js'), 
+      },
     }
   ],
   bootstrap: [AppComponent]

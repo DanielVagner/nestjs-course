@@ -34,6 +34,8 @@ export class LoginComponent implements OnInit {
     this.auth.login(val.email, val.password).subscribe(
       (res: any) => {
         localStorage.setItem('authJwtToken', res.authJwtToken);
+        // maybe better solution to decode jwt and get role from token
+        localStorage.setItem('permission', res.role);
 
         this.router.navigateByUrl('/courses');
       },

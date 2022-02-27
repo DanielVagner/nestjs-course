@@ -3,21 +3,20 @@ import {
   EventEmitter,
   Input,
   OnInit,
-  Output,
-  ViewEncapsulation
+  Output
 } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Course } from '../../../../shared/course';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { EditCourseDialogComponent } from '../edit-course-dialog/edit-course-dialog.component';
-import { defaultDialogConfig } from '../shared/default-dialog-config';
 import { CoursesHttpService } from '../services/courses-http.service';
+import { defaultDialogConfig } from '../shared/default-dialog-config';
 
 @Component({
-  selector: 'courses-card-list',
-  templateUrl: './courses-card-list.component.html',
-  styleUrls: ['./courses-card-list.component.scss']
+  selector: 'article-card-list',
+  templateUrl: './article-card-list.component.html',
+  styleUrls: ['./article-card-list.component.scss']
 })
-export class CoursesCardListComponent implements OnInit {
+export class ArticleCardListComponent implements OnInit {
   @Input()
   courses: Course[];
 

@@ -1,6 +1,6 @@
 <div class="courses-panel">
   <div class="header">
-    <h2 class="title">All Courses</h2>
+    <h2 class="title">All Articles</h2>
 
     <button mat-mini-fab color="primary">
       <mat-icon class="add-course-btn" (click)="onAddCourse()">add</mat-icon>
@@ -11,18 +11,18 @@
 
   <mat-tab-group>
     <mat-tab label="Angular">
-      <courses-card-list
+      <article-card-list
         (courseChanged)="reload()"
-        [courses]="beginnerCourses$ | async"
+        [courses]="angularCourses$ | async"
       >
-      </courses-card-list>
+      </article-card-list>
     </mat-tab>
 
     <mat-tab label="NestJS">
-      <courses-card-list
+      <article-card-list
         (courseChanged)="reload()"
-        [courses]="advancedCourses$ | async"
-      ></courses-card-list>
+        [courses]="nestjsCourses$ | async"
+      ></article-card-list>
     </mat-tab>
   </mat-tab-group>
 </div>

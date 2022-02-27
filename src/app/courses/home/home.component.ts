@@ -15,9 +15,9 @@ import { CoursesHttpService } from '../services/courses-http.service';
 export class HomeComponent implements OnInit {
   loading$: Observable<boolean>;
 
-  beginnerCourses$: Observable<Course[]>;
+  angularCourses$: Observable<Course[]>;
 
-  advancedCourses$: Observable<Course[]>;
+  nestjsCourses$: Observable<Course[]>;
 
   constructor(
     private dialog: MatDialog,
@@ -36,15 +36,15 @@ export class HomeComponent implements OnInit {
 
     this.loading$ = courses$.pipe(map((courses) => !!courses));
 
-    this.beginnerCourses$ = courses$.pipe(
+    this.angularCourses$ = courses$.pipe(
       map((courses) =>
-        courses.filter((course) => course.category == 'BEGINNER')
+        courses.filter((course) => course.category == 'ANGULAR')
       )
     );
 
-    this.advancedCourses$ = courses$.pipe(
+    this.nestjsCourses$ = courses$.pipe(
       map((courses) =>
-        courses.filter((course) => course.category == 'ADVANCED')
+        courses.filter((course) => course.category == 'NESTJS')
       )
     );
   }

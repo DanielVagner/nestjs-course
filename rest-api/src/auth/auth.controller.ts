@@ -38,9 +38,11 @@ export class AuthController {
                     }
 
                     const authJwtToken = jwt.sign({ email, roles: user.roles }, JWT_SECRET);
+                    const role = user.roles;
 
                     resolve({
-                        authJwtToken
+                        authJwtToken,
+                        role
                     });
                 }
             );
