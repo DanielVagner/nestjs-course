@@ -1,51 +1,86 @@
 @use '~@angular/material' as mat;
 /* You can add global styles to this file, and also import other style files */
 
-
+.mat-tab-labels{
+  justify-content: center;
+}
 
 
 // Include non-theme styles for core.
 @include mat.core();
 
-$mat-custom-theme:  (
-  50: #ffebee,
-  100: #ffcdd2,
-  200: #ef9a9a,
-  300: #e57373,
-  400: #ef5350,
-  500: #e1234e,
-  600: #e53935,
-  700: #d32f2f,
-  800: #c62828,
-  900: #b71c1c,
-  A100: #ff8a80,
-  A200: #ff5252,
-  A400: #ff1744,
-  A700: #d50000,
+$mat-custom-primary-theme:   (
+  50 : #e2e9f4,
+    100 : #b6c8e3,
+    200 : #86a3d0,
+    300 : #567ebd,
+    400 : #3163af,
+    500 : #0d47a1,
+    600 : #0b4099,
+    700 : #09378f,
+    800 : #072f85,
+    900 : #032074,
+    A100 : #a2b4ff,
+    A200 : #6f8aff,
+    A400 : #3c61ff,
+    A700 : #234cff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+
+$mat-custom-seccondary-theme: (
+  50 : #f7f5e3,
+  100 : #ebe5b8,
+  200 : #ddd489,
+  300 : #cfc25a,
+  400 : #c5b536,
+  500 : #bba813,
+  600 : #b5a011,
+  700 : #ac970e,
+  800 : #a48d0b,
+  900 : #967d06,
+  A100 : #fff3c2,
+  A200 : #ffe98f,
+  A400 : #ffdf5c,
+  A700 : #ffda42,
   contrast: (
-    50: rgba(black, 0.87),
-    100: rgba(black, 0.87),
-    200: rgba(black, 0.87),
-    300: rgba(black, 0.87),
-    400: rgba(black, 0.87),
-    500: white,
-    600: white,
-    700: white,
-    800: white,
-    900: white,
-    A100: rgba(black, 0.87),
-    A200: white,
-    A400: white,
-    A700: white,
+      50 : #000000,
+      100 : #000000,
+      200 : #000000,
+      300 : #000000,
+      400 : #000000,
+      500 : #000000,
+      600 : #000000,
+      700 : #000000,
+      800 : #000000,
+      900 : #ffffff,
+      A100 : #000000,
+      A200 : #000000,
+      A400 : #000000,
+      A700 : #000000,
   )
 );
 
 
 // Define a theme.
-$primary: mat.define-palette($mat-custom-theme);
-$accent:  mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$primary: mat.define-palette($mat-custom-primary-theme);
+$accent:  mat.define-palette($mat-custom-seccondary-theme);
 
-$theme: mat.define-light-theme($primary, $accent);
+$theme: mat.define-dark-theme($primary, $accent);
 
 // Include all theme styles for the components.
 @include mat.all-component-themes($theme);

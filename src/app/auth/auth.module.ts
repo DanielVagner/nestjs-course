@@ -7,6 +7,7 @@ import {RouterModule} from "@angular/router";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
 import {AuthService} from "./auth.service";
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
     imports: [
@@ -15,11 +16,16 @@ import {AuthService} from "./auth.service";
         MatCardModule,
         MatInputModule,
         MatButtonModule,
-        RouterModule.forChild([{path: '', component: LoginComponent}]),
+        RouterModule.forChild(
+            [
+                {path: 'login', component: LoginComponent},
+                {path: 'register', component: RegisterComponent}
+            ]
+            ),
 
     ],
-    declarations: [LoginComponent],
-    exports: [LoginComponent]
+    declarations: [LoginComponent, RegisterComponent],
+    exports: [LoginComponent, RegisterComponent]
 })
 export class AuthModule {
     static forRoot(): ModuleWithProviders<AuthModule> {

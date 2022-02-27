@@ -12,11 +12,9 @@ import {CoursesHttpService} from '../services/courses-http.service';
 @Component({
     selector: 'home',
     templateUrl: './home.component.html',
-    styleUrls: ['./home.component.css']
+    styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
-    promoTotal$: Observable<number>;
 
     loading$: Observable<boolean>;
 
@@ -55,11 +53,6 @@ export class HomeComponent implements OnInit {
       .pipe(
         map(courses => courses.filter(course => course.category == 'ADVANCED'))
       );
-
-    this.promoTotal$ = courses$
-        .pipe(
-            map(courses => courses.filter(course => course.promo).length)
-        );
 
   }
 

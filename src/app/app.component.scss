@@ -8,11 +8,17 @@ main {
 }
 
 .menu-button {
-    background: #e1234e;
     color: white;
     border: none;
     cursor:pointer;
     outline:none;
+}
+
+mat-sidenav {
+    width: 200px;
+    span{
+        margin-left: 15%;
+    }
 }
 
 

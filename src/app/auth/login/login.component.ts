@@ -29,6 +29,10 @@ export class LoginComponent implements OnInit {
 
   }
 
+  redirectToRegister(){
+    this.router.navigateByUrl('/register');
+  }
+
   login() {
     const val = this.form.value;
 

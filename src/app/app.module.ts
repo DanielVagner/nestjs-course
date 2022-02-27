@@ -1,21 +1,15 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule, Routes } from '@angular/router';
+import { AppComponent } from './app.component';
+import { AuthInterceptor } from './auth/auth.interceptor';
+import { AuthModule } from './auth/auth.module';
+import { MaterialModule } from './shared/material/material.module';
 
-import {AppComponent} from './app.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatMenuModule} from '@angular/material/menu';
-import {MatIconModule} from '@angular/material/icon';
 
-import {MatListModule} from '@angular/material/list';
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 
-import {RouterModule, Routes} from '@angular/router';
-import {AuthModule} from './auth/auth.module';
-import {environment} from '../environments/environment';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import {AuthInterceptor} from './auth/auth.interceptor';
 
 
 const routes: Routes = [
@@ -25,7 +19,7 @@ const routes: Routes = [
     },
     {
         path: '**',
-        redirectTo: '/'
+        redirectTo: '/login'
     }
 ];
 
@@ -39,13 +33,8 @@ const routes: Routes = [
         BrowserAnimationsModule,
         RouterModule.forRoot(routes),
         HttpClientModule,
-        MatMenuModule,
-        MatIconModule,
-        MatSidenavModule,
-        MatProgressSpinnerModule,
-        MatListModule,
-        MatToolbarModule,
-        AuthModule.forRoot()
+        AuthModule.forRoot(),
+        MaterialModule
     ],
     providers: [
         {

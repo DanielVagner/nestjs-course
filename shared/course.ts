@@ -1,4 +1,4 @@
-import { IsBoolean, IsInt, IsMongoId, IsString } from "class-validator";
+import { IsBoolean, IsEmail, IsInt, IsMongoId, IsNotEmpty, IsString } from "class-validator";
 
 
 
@@ -13,6 +13,19 @@ export class Course {
   @IsString() category: string;
   @IsInt() lessonsCount: number;
   @IsBoolean() promo: boolean;
+}
+
+export class User {
+  @IsMongoId() _id: string;
+
+  @IsString() roles: string;
+
+  @IsNotEmpty()
+  @IsEmail() 
+  email: string;
+
+  @IsNotEmpty()
+  password: string;
 }
 
 

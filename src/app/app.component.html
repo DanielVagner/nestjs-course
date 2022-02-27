@@ -1,16 +1,11 @@
-<mat-sidenav-container fullscreen>
+<mat-sidenav-container fullscreen >
 
     <mat-sidenav #start>
         <mat-nav-list (click)="start.close()">
 
             <a mat-list-item routerLink="/courses">
                 <mat-icon>library_books</mat-icon>
-                <span>Courses</span>
-            </a>
-
-            <a mat-list-item routerLink="/login">
-                <mat-icon>account_circle</mat-icon>
-                <span>Login</span>
+                <span>Article</span>
             </a>
 
             <a mat-list-item  (click)="logout()">
@@ -23,9 +18,14 @@
     </mat-sidenav>
 
     <mat-toolbar color="primary">
-        <button class="menu-button" mat-icon-button (click)="start.open('mouse')">
+        <button mat-button color="accent"  (click)="start.open('mouse')">
             <mat-icon>menu</mat-icon>
         </button>
+   
+        <a href="https://angular.io/"><img src="../assets/img/shield-large.svg" width="37" height="40" title="Home" alt="Home"></a>
+        <a style="font-size: 18px; margin: 2%">+</a>
+        <a href="https://nestjs.com/"><img src="../assets/img/logo-small.ede75a6b.svg" width="37" height="40" title="Home" alt="Home"></a>
+ 
     </mat-toolbar>
 
     <router-outlet></router-outlet>
